@@ -28,6 +28,7 @@
     "build": "run-p build:*",
     "build:http": "esbuild index.js --outfile=index.cjs --target=node12.22 --platform=node --format=cjs",
     "build:router": "cd router; npm run build ; cd -",
+    "build:static": "cd static; npm run build ; cd -",
     "test": "echo 'test'"
   },
   "prettier": "@barelyhuman/prettier-config",

@@ -16,4 +16,11 @@
   - [x] Avoid Regex conflicting paths
   - [ ] add a radix trie/tree for longer paths
 
+- [ ] Static
+
+  - [x] Stream Serve file
+  - [ ] Send through valid headers (size,mime, etc)
+  - [ ] Handle cases for all methods (HEAD, OPTIONS)
+  - [ ] Range Request handling
+
 - [ ] Tests
