@@ -20,6 +20,10 @@
     "./router": {
       "require": "./router/index.cjs",
       "default": "./router/index.js"
+    },
+    "./static": {
+      "require": "./static/index.cjs",
+      "default": "./static/index.js"
     }
   },
   "main": "./index.cjs",
