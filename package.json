@@ -1,0 +1,43 @@
+{
+  "name": "@barelyhuman/http",
+  "version": "1.0.0",
+  "private": false,
+  "description": "collection of tiny utilities to setup a micro service in node",
+  "keywords": [],
+  "license": "MIT",
+  "author": "reaper <ahoy@barelyhuman.dev>",
+  "type": "module",
+  "files": [
+    "dist",
+    "router/dist"
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "require": "./index.cjs",
+      "default": "./index.js"
+    },
+    "./router": {
+      "require": "./router/index.cjs",
+      "default": "./router/index.js"
+    }
+  },
+  "main": "./index.cjs",
+  "module": "./index.js",
+  "scripts": {
+    "build": "run-p build:*",
+    "build:http": "esbuild index.js --outfile=index.cjs --target=node12.22 --platform=node --format=cjs",
+    "build:router": "cd router; npm run build ; cd -",
+    "test": "echo 'test'"
+  },
+  "prettier": "@barelyhuman/prettier-config",
+  "devDependencies": {
+    "@barelyhuman/prettier-config": "^1.1.0",
+    "esbuild": "^0.17.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
