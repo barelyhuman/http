@@ -3,11 +3,26 @@ const EVENTS = {
   beforeLoad: 'BEFORE_LOAD',
 }
 
+export const ERRORS = {
+  MISSING_INITIALIZER:
+    'need an `init` function in the options to create an Engine ',
+  MISSING_MODULES:
+    'need an `modules` function in the options to create an Engine ',
+}
+
 export function Engine(appOptions) {
   this.ready = false
   this.listeners = {}
 
-  const app = appOptions.initializer()
+  if (!(appOptions?.init && typeof appOptions?.init === 'function')) {
+    throw new Error(ERRORS.MISSING_INITIALIZER)
+  }
+
+  if (!(appOptions?.modules && typeof appOptions?.modules === 'function')) {
+    throw new Error(ERRORS.MISSING_MODULES)
+  }
+
+  const app = appOptions.init()
   const modules = appOptions.modules
 
   app.engine = this

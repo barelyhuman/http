@@ -27,7 +27,8 @@
   "scripts": {
     "build": "node build.mjs",
     "dev": "node build.mjs -w",
-    "test": "echo 'test'"
+    "test": "uvu",
+    "fix": "prettier --write ."
   },
   "prettier": "@barelyhuman/prettier-config",
   "devDependencies": {
@@ -36,6 +37,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.4",
     "tiny-glob": "^0.2.9",
+    "uvu": "^0.5.6",
     "watcher": "^2.2.2"
   },
   "publishConfig": {

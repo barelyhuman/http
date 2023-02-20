@@ -62,6 +62,7 @@ yarn dev
 
   - [x] Simple module loader
   - [ ] Auto loading
+  - [x] Basic Test
 
 - [ ] Router
 
