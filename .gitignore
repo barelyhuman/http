@@ -1,5 +1,3 @@
 node_modules 
 dist
 
-# mostly generated files, add specific exclusions if adding configs with `.cjs`
-*.cjs
