@@ -27,9 +27,9 @@ jobs:
         run: yarn test
 
       - name: Compile
-        run: pnpm build
+        run: pnpm build; cp package.json dist
 
       - name: Publish
-        run: npm publish
+        run: cd dist; npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

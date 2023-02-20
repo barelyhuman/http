@@ -7,10 +7,6 @@
   "license": "MIT",
   "author": "reaper <ahoy@barelyhuman.dev>",
   "type": "module",
-  "files": [
-    "dist",
-    "router/dist"
-  ],
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -18,21 +14,19 @@
       "default": "./index.js"
     },
     "./router": {
-      "require": "./router/index.cjs",
-      "default": "./router/index.js"
+      "require": "./router.cjs",
+      "default": "./router.js"
     },
     "./static": {
-      "require": "./static/index.cjs",
-      "default": "./static/index.js"
+      "require": "./static.cjs",
+      "default": "./static.js"
     }
   },
   "main": "./index.cjs",
   "module": "./index.js",
   "scripts": {
-    "build": "run-p build:*",
-    "build:http": "esbuild index.js --outfile=index.cjs --target=node12.22 --platform=node --format=cjs",
-    "build:router": "cd router; npm run build ; cd -",
-    "build:static": "cd static; npm run build ; cd -",
+    "build": "node build.mjs",
+    "dev": "node build.mjs -w",
     "test": "echo 'test'"
   },
   "prettier": "@barelyhuman/prettier-config",
@@ -40,7 +34,9 @@
     "@barelyhuman/prettier-config": "^1.1.0",
     "esbuild": "^0.17.7",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.8.4"
+    "prettier": "^2.8.4",
+    "tiny-glob": "^0.2.9",
+    "watcher": "^2.2.2"
   },
   "publishConfig": {
     "access": "public"

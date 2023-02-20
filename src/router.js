@@ -1,9 +1,11 @@
 export class Router {
   routes = {}
+
   constructor() {
     this.add = this.add.bind(this)
     this.find = this.find.bind(this)
   }
+
   add(method, path, handler) {
     if (!this.routes[method]) {
       this.routes[method] = {}

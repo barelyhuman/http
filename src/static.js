@@ -10,7 +10,7 @@ export class Static {
   }
 
   serve(req, res) {
-    // don't have for requests that aren't GET / HEAD
+    // don't have to handle for requests that aren't GET / HEAD
     if (req.method !== GET || req.method !== HEAD) {
       res.status = 405
       res.end()
