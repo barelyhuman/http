@@ -1,3 +1,7 @@
+/**
+ * @typedef {"GET"|"POST"|"PUT"|"DELETE"|"OPTIONS"|"HEAD"|"PATCH"|"UPDATE"} MethodEnum
+ */
+
 export class Router {
   routes = {}
 
@@ -6,6 +10,11 @@ export class Router {
     this.find = this.find.bind(this)
   }
 
+  /**
+   * @param {MethodEnum} method
+   * @param {string} path
+   * @param {()=>void} handler
+   */
   add(method, path, handler) {
     if (!this.routes[method]) {
       this.routes[method] = {}
@@ -14,6 +23,13 @@ export class Router {
     const props = isDynamicRoute(path)
     this.routes[method][path] = { ...props, handler: handler }
   }
+
+  /**
+   *
+   * @param {MethodEnum} method
+   * @param {string} path
+   * @returns
+   */
   find(method, path) {
     if (this.routes[method][path]) {
       return {

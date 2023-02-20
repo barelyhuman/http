@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "target": "ES2019",
+    "lib": ["ES2019"]
+  },
+  "include": ["src/*"]
+}

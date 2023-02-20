@@ -4,6 +4,10 @@ import { join } from 'path'
 export class Static {
   rootPath
 
+  /**
+   *
+   * @param {string} rootPath
+   */
   constructor(rootPath) {
     this.rootPath = rootPath
     this.serve = this.serve.bind(this)
