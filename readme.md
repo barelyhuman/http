@@ -2,6 +2,8 @@
 
 > Tiny composable utils for node http
 
+> **Warning**: Under development
+
 Most of these are already being solved by much larger libraries so I won't
 promise the most well maintained library. There's better libs out there.
 
