@@ -20,6 +20,10 @@
     "./static": {
       "require": "./static.cjs",
       "default": "./static.js"
+    },
+    "./middleware": {
+      "require": "./middleware.cjs",
+      "default": "./middleware.js"
     }
   },
   "main": "./index.cjs",

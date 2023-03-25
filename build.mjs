@@ -13,7 +13,8 @@ async function main() {
   const configs = [].concat(
     createEntry('src/index.js'),
     createEntry('src/router.js'),
-    createEntry('src/static.js')
+    createEntry('src/static.js'),
+    createEntry('src/middleware.js')
   )
   await Promise.all(configs.map(x => esbuild.build(x)))
 }
