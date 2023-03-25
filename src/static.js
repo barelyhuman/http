@@ -6,11 +6,11 @@ export class Static {
   prefix = ''
 
   /**
-   * @param {string} urlPrefix, the prefix to look for in the url before searching for the file
+   * @param {string} prefix - prefix to check for in the request
    * @param {string} rootPath
    */
-  constructor(urlPrefix, rootPath) {
-    this.prefix = urlPrefix
+  constructor(prefix, rootPath) {
+    this.prefix = prefix
     this.rootPath = rootPath
     this.serve = this.serve.bind(this)
     this.hasFile = this.hasFile.bind(this)
@@ -25,8 +25,16 @@ export class Static {
     return true
   }
 
+  /**
+   * @param {string} prefix
+   * @param {string} rootPath
+   */
+  static create(prefix, rootPath) {
+    return new Static(prefix, rootPath)
+  }
+
   _getFilePathFromURL(req) {
-    let fpath = req.url.replace(this.prefix, '')
+    let fpath = (req.url || '').replace(this.prefix, '')
     if (fpath.trim().length == 0) {
       fpath = 'index.html'
     }
@@ -36,7 +44,7 @@ export class Static {
   serve(req, res) {
     // don't have to handle for requests that aren't GET / HEAD
     if (req.method !== 'GET' && req.method !== 'HEAD') {
-      res.status = 405
+      res.statusCode = 405
       res.end()
       return
     }
